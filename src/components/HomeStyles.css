@@ -1,0 +1,242 @@
+:root {
+  --primary-color: #6c63ff;
+  --primary-color-dark: #5a52d4;
+  --secondary-color: #fff;
+  --dark-color: #333;
+  --light-color: #f3f3f3;
+  --danger-color: #ff6b6b;
+  --agree-color: #00b894;
+  --disagree-color: #6c5ce7;
+}
+
+body.dark-mode {
+  --primary-color: #888;
+  --secondary-color: #121212;
+  --dark-color: #fff;
+  --light-color: #444;
+  --danger-color: #ff6b6b;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: var(--dark-color);
+}
+
+.start-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1em;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+
+.card {
+  perspective: 1000px;
+  width: 250px;
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-front {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 1.5em;
+}
+
+.card-back {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  transform: rotateY(180deg);
+  flex-direction: column;
+  text-align: center;
+}
+
+.learn-more-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.learn-more-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.quiz-container {
+  margin-top: 40px;
+  overflow-y: hidden;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: var(--light-color);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+.question-container {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid var(--light-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-container.current {
+  opacity: 1;
+}
+
+.question {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: var(--dark-color);
+}
+
+.answers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.answers button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1em;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.answers button:hover,
+.answers button:focus {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.result-container {
+  margin-top: 40px;
+}
+
+.result-container h2 {
+  font-size: 2em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.result-container p {
+  font-size: 1.2em;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+
+.error {
+  color: var(--danger-color);
+  margin-top: 10px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.loading-spinner {
+  border: 8px solid var(--light-color);
+  border-top: 8px solid var(--primary-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

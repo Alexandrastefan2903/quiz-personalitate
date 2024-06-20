@@ -1,0 +1,57 @@
+/* NavbarStyles.css */
+.navbar .user-initial {
+  cursor: pointer;
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 20px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background: #f0f0f0;
+}
+
+/* ResultsStyles.css */
+.results-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.results-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
