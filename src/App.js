@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
 import Results from './components/Results';
-import SpotifyPlaylist from './components/SpotifyPlaylist'; // Import SpotifyPlaylist component
+import SpotifyPlaylist from './components/SpotifyPlaylist'; 
 import './App.css';
 import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 
