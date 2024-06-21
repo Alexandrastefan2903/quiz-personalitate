@@ -155,8 +155,8 @@ const Home = ({ isAuthenticated, onLogin, quizStarted, setQuizStarted, flipLearn
       setTimeout(() => {
         setShowScore(true);
         setLoading(false);
-        navigate('/results', { state: { score } }); // Redirect to Results page with state
-      }, 2000); // Simulate a delay for loading
+        navigate('/results', { state: { score } }); 
+      }, 2000); 
     }
   };
 
