@@ -1,0 +1,34 @@
+.spotify-playlist-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.spotify-playlist-container img {
+  width: 300px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: #1ed760;
+}

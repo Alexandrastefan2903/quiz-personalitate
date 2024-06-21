@@ -7,6 +7,7 @@
   --danger-color: #ff6b6b;
   --agree-color: #00b894;
   --disagree-color: #6c5ce7;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode {
@@ -18,14 +19,14 @@ body.dark-mode {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
   text-align: center;
   background-color: var(--secondary-color);
   color: var(--dark-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -34,9 +35,9 @@ body.dark-mode {
 }
 
 .header h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   color: var(--primary-color);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .header p {
@@ -47,18 +48,19 @@ body.dark-mode {
 .start-button {
   display: inline-block;
   padding: 15px 30px;
-  font-size: 1em;
+  font-size: 1.2em;
   color: var(--secondary-color);
   background-color: var(--primary-color);
   border: none;
   border-radius: 30px;
   cursor: pointer;
   margin-top: 20px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .start-button:hover {
   background-color: var(--primary-color-dark);
+  transform: translateY(-3px);
 }
 
 .cards-container {
@@ -70,9 +72,16 @@ body.dark-mode {
 .card {
   perspective: 1000px;
   width: 250px;
-  height: 300px;
+  height: 350px;
   cursor: pointer;
   position: relative;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card-inner {
@@ -81,6 +90,7 @@ body.dark-mode {
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  border-radius: 15px;
 }
 
 .card.flipped .card-inner {
@@ -93,11 +103,12 @@ body.dark-mode {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .card-front {
@@ -155,10 +166,11 @@ body.dark-mode {
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid var(--light-color);
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .question-container.current {
@@ -166,7 +178,7 @@ body.dark-mode {
 }
 
 .question {
-  font-size: 1.5em;
+  font-size: 1.8em;
   margin-bottom: 20px;
   color: var(--dark-color);
 }
@@ -239,4 +251,39 @@ body.dark-mode {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
 }

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
+import Results from './components/Results';
+import SpotifyPlaylist from './components/SpotifyPlaylist'; // Import SpotifyPlaylist component
 import './App.css';
 import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 
@@ -12,18 +14,26 @@ function App() {
   const [flipLearnMore, setFlipLearnMore] = useState(false);
   const [flipPlaylist, setFlipPlaylist] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [redirectToQuiz, setRedirectToQuiz] = useState(false);
+  const [showExitQuizAlert, setShowExitQuizAlert] = useState(false);
+  const [pendingRoute, setPendingRoute] = useState(null);
 
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => {
       console.log(tokenResponse);
       setIsAuthenticated(true);
+      if (redirectToQuiz) {
+        setQuizStarted(true);
+        setRedirectToQuiz(false);
+      }
     },
     onFailure: () => {
       console.log('Login failed');
     },
   });
 
-  const handleLogin = () => {
+  const handleLogin = (redirect = false) => {
+    setRedirectToQuiz(redirect);
     login();
   };
 
@@ -45,9 +55,12 @@ function App() {
         <Navbar
           isAuthenticated={isAuthenticated}
           onLogout={handleLogout}
-          onLogin={handleLogin}
+          onLogin={() => handleLogin(false)}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
+          setShowExitQuizAlert={setShowExitQuizAlert}
+          setPendingRoute={setPendingRoute}
+          quizStarted={quizStarted}
         />
         <div className="content">
           <Routes>
@@ -56,7 +69,7 @@ function App() {
               element={
                 <Home
                   isAuthenticated={isAuthenticated}
-                  onLogin={handleLogin}
+                  onLogin={() => handleLogin(true)}
                   quizStarted={quizStarted}
                   setQuizStarted={setQuizStarted}
                   flipLearnMore={flipLearnMore}
@@ -67,8 +80,30 @@ function App() {
               }
             />
             <Route path="/learn-more" element={<LearnMore />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/spotify-playlist" element={<SpotifyPlaylist />} /> {/* Add SpotifyPlaylist route */}
           </Routes>
         </div>
+        {showExitQuizAlert && (
+          <div className="modal">
+            <div className="modal-content">
+              <p>Do you want to exit the quiz?</p>
+              <button
+                onClick={() => {
+                  setShowExitQuizAlert(false);
+                  setQuizStarted(false);
+                  if (pendingRoute) {
+                    window.location.href = pendingRoute; // Navigate using window.location.href
+                    setPendingRoute(null);
+                  }
+                }}
+              >
+                Exit Quiz
+              </button>
+              <button onClick={() => setShowExitQuizAlert(false)}>Cancel</button>
+            </div>
+          </div>
+        )}
       </Router>
     </GoogleOAuthProvider>
   );

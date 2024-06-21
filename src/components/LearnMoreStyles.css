@@ -1,0 +1,97 @@
+/* LearnMoreStyles.css */
+.learn-more-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.learn-more-header {
+  margin-bottom: 40px;
+}
+
+.learn-more-header h1 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.learn-more-header p {
+  font-size: 1.2em;
+  color: var(--dark-color);
+}
+
+.learn-more-content section {
+  margin-bottom: 40px;
+}
+
+.learn-more-content h2 {
+  font-size: 2em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.learn-more-content p,
+.learn-more-content ul {
+  font-size: 1.1em;
+  color: var(--dark-color);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.learn-more-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.learn-more-content ul li {
+  margin-bottom: 10px;
+}
+
+.learn-more-content ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.learn-more-content ul li a:hover {
+  color: var(--primary-color-dark);
+}
+
+.disc-types {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.disc-type-card {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 45%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.disc-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.disc-type-card h3 {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.disc-type-card p {
+  font-size: 1em;
+  color: var(--dark-color);
+}
