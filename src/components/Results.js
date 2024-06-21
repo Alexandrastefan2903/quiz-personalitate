@@ -50,7 +50,7 @@ const celebrities = {
 const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const score = location.state?.score || { D: 0, I: 0, S: 0, C: 0 }; // Default score if undefined
+  const score = location.state?.score || { D: 0, I: 0, S: 0, C: 0 }; 
 
   const highestScore = Object.keys(score).reduce((a, b) => (score[a] > score[b] ? a : b));
   const [currentCelebrityIndex, setCurrentCelebrityIndex] = useState(0);
